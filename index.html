@@ -1,0 +1,924 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Null’s Brawl – The Ultimate Private Server for Unlimited Brawl Stars Fun</title>
+  <meta name="description" content="Explore Null’s Brawl: unlimited gems, unlocked brawlers, exclusive skins, custom modes, early updates, safety notes, and a detailed comparison vs official Brawl Stars." />
+
+  <style>
+    :root{
+      /* Brand-inspired (Brawl Stars vibe) */
+      --bg-0:#070A14;
+      --bg-1:#0B1230;
+      --card:#0E1B3D;
+      --card2:#0B1633;
+      --text:#EAF1FF;
+      --muted:#A9B6D4;
+      --line:rgba(255,255,255,.10);
+
+      --accent:#FFD34D;     /* gold */
+      --accent2:#3CF2B1;    /* neon mint */
+      --accent3:#7A5CFF;    /* violet */
+      --danger:#FF4D6D;
+      --ok:#2EF2A2;
+
+      --shadow: 0 18px 50px rgba(0,0,0,.45);
+      --radius: 18px;
+
+      --max: 1160px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 15% 10%, rgba(122,92,255,.35), transparent 55%),
+        radial-gradient(1100px 700px at 85% 15%, rgba(60,242,177,.22), transparent 55%),
+        radial-gradient(900px 600px at 50% 80%, rgba(255,211,77,.18), transparent 60%),
+        linear-gradient(180deg, var(--bg-0), var(--bg-1));
+      overflow-x:hidden;
+    }
+
+    /* Full-width layout but centered content blocks */
+    .wrap{width:100%;}
+    .container{
+      width:min(var(--max), calc(100% - 48px));
+      margin-inline:auto;
+    }
+
+    /* Header */
+    header{
+      position:relative;
+      padding:28px 0 18px;
+      border-bottom:1px solid var(--line);
+      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(7,10,20,.7), rgba(7,10,20,.15));
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      text-decoration:none; color:var(--text);
+    }
+    .logo{
+      width:44px;height:44px;border-radius:14px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), transparent 45%),
+        linear-gradient(135deg, rgba(255,211,77,1), rgba(122,92,255,1));
+      box-shadow: 0 12px 30px rgba(122,92,255,.25);
+      position:relative;
+      overflow:hidden;
+    }
+    .logo:after{
+      content:"";
+      position:absolute; inset:-20px;
+      background: linear-gradient(135deg, rgba(60,242,177,.35), transparent 55%);
+      transform: rotate(18deg);
+    }
+    .brand h1{
+      font-size:16px; margin:0; letter-spacing:.2px; font-weight:800;
+    }
+    .brand p{
+      margin:0; color:var(--muted); font-size:12px; line-height:1.2;
+    }
+
+    .nav-actions{
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: rgba(255,255,255,.04);
+      color:var(--muted);
+      font-size:13px;
+    }
+    .cta{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 14px;
+      border-radius:999px;
+      background: linear-gradient(135deg, rgba(255,211,77,1), rgba(60,242,177,1));
+      color:#07101f;
+      font-weight:900;
+      text-decoration:none;
+      border:0;
+      box-shadow: 0 14px 40px rgba(60,242,177,.18);
+      transition: transform .15s ease, filter .15s ease;
+      white-space:nowrap;
+    }
+    .cta:hover{transform: translateY(-1px); filter: brightness(1.02);}
+    .cta svg{width:18px;height:18px}
+
+    /* Hero */
+    .hero{padding:34px 0 10px;}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:22px;
+      align-items:stretch;
+    }
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr; }
+    }
+
+    .hero-card{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(900px 320px at 10% 0%, rgba(255,211,77,.14), transparent 60%),
+        radial-gradient(900px 320px at 90% 0%, rgba(60,242,177,.10), transparent 60%),
+        linear-gradient(180deg, rgba(14,27,61,.75), rgba(11,22,51,.65));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero-card .inner{padding:26px;}
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      font-weight:800; letter-spacing:.4px;
+      padding:8px 12px;
+      border-radius:999px;
+      background: rgba(255,255,255,.05);
+      border:1px solid var(--line);
+      color: var(--muted);
+      font-size:13px;
+    }
+    .kicker b{color:var(--accent)}
+    .hero h2{
+      margin:14px 0 10px;
+      font-size: clamp(28px, 2.8vw, 44px);
+      line-height:1.08;
+      letter-spacing:-.6px;
+    }
+    .hero p{
+      margin:0;
+      color: var(--muted);
+      font-size: 15.5px;
+      line-height: 1.7;
+      max-width: 64ch;
+    }
+    .hero-meta{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top:16px;
+    }
+
+    .side{
+      display:grid;
+      gap:14px;
+    }
+    .mini{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.035);
+      box-shadow: 0 14px 40px rgba(0,0,0,.22);
+      padding:16px 16px 14px;
+    }
+    .mini h3{
+      margin:0 0 6px;
+      font-size:14px;
+      letter-spacing:.2px;
+    }
+    .mini p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.55}
+    .mini .tagrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .tag{
+      font-size:12px;
+      color:var(--text);
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+    }
+    .tag strong{color:var(--accent)}
+    .tag.alt strong{color:var(--accent2)}
+
+    /* Content */
+    main{padding:14px 0 52px;}
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:18px;
+      margin-top:18px;
+    }
+
+    .section{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(14,27,61,.6), rgba(11,22,51,.55));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .section .head{
+      padding:18px 20px;
+      border-bottom:1px solid var(--line);
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+      background:
+        radial-gradient(900px 260px at 30% 0%, rgba(122,92,255,.18), transparent 60%),
+        radial-gradient(900px 260px at 80% 0%, rgba(255,211,77,.12), transparent 60%),
+        rgba(255,255,255,.02);
+    }
+    .section .head h3{
+      margin:0;
+      font-size:16px;
+      letter-spacing:.2px;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-size:12px;
+      white-space:nowrap;
+    }
+    .section .body{padding:18px 20px 20px;}
+    .section p{
+      margin:0 0 12px;
+      color: var(--muted);
+      line-height:1.72;
+      font-size: 15px;
+    }
+    .section p:last-child{margin-bottom:0}
+
+    /* Feature list */
+    .feature-grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:12px;
+      margin-top:10px;
+    }
+    @media (max-width: 860px){
+      .feature-grid{grid-template-columns:1fr;}
+    }
+    .feature{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.03);
+      padding:14px 14px 13px;
+      display:flex; gap:12px;
+      align-items:flex-start;
+    }
+    .ico{
+      width:38px;height:38px;border-radius:14px;
+      background: linear-gradient(135deg, rgba(255,211,77,.95), rgba(122,92,255,.95));
+      flex:0 0 auto;
+      display:grid; place-items:center;
+      box-shadow: 0 12px 26px rgba(122,92,255,.18);
+    }
+    .ico svg{width:20px;height:20px; color:#07101f}
+    .feature h4{margin:0 0 4px; font-size:14px; letter-spacing:.2px}
+    .feature p{margin:0; font-size:13.8px; line-height:1.55}
+
+    /* Comparison table */
+    .table-wrap{
+      margin-top:12px;
+      border:1px solid var(--line);
+      border-radius: 16px;
+      overflow:hidden;
+      background: rgba(255,255,255,.02);
+    }
+    table{width:100%; border-collapse:collapse}
+    th,td{
+      padding:12px 12px;
+      text-align:left;
+      border-bottom:1px solid var(--line);
+      vertical-align:top;
+      font-size:14px;
+    }
+    th{
+      color: var(--text);
+      background: rgba(255,255,255,.035);
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    td{color:var(--muted)}
+    tr:last-child td{border-bottom:0}
+    .good{color:var(--ok); font-weight:800}
+    .warn{color:var(--accent); font-weight:800}
+    .bad{color:var(--danger); font-weight:800}
+
+    /* Link styling */
+    a{
+      color: var(--accent2);
+      text-decoration: none;
+      font-weight: 800;
+    }
+    a:hover{ text-decoration: underline; }
+    .linkchip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background: rgba(60,242,177,.10);
+      color: var(--text);
+      font-weight:900;
+      white-space:nowrap;
+    }
+    .linkchip svg{width:16px;height:16px}
+
+    /* Footer */
+    footer{
+      border-top:1px solid var(--line);
+      padding:26px 0 40px;
+      background: linear-gradient(180deg, rgba(7,10,20,.10), rgba(7,10,20,.55));
+    }
+    .foot{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+    .foot .left{
+      max-width: 62ch;
+    }
+    .foot h4{margin:0 0 8px; font-size:14px; letter-spacing:.2px}
+    .foot p{margin:0; color:var(--muted); line-height:1.65; font-size:13.5px}
+    .social{
+      display:flex; gap:10px; flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+    }
+    .social a{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      font-weight: 900;
+    }
+    .social a:hover{background: rgba(255,255,255,.06)}
+    .social svg{width:16px;height:16px}
+
+    /* Small helpers */
+    .muted{color:var(--muted)}
+    .divider{height:1px;background:var(--line);margin:14px 0}
+    .note{
+      padding:12px 14px;
+      border-radius: 16px;
+      border:1px solid rgba(255,77,109,.25);
+      background: rgba(255,77,109,.08);
+      color: var(--text);
+      margin-top:10px;
+      font-size:14px;
+      line-height:1.6;
+    }
+    .note strong{color:var(--danger)}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <!-- HEADER -->
+    <header>
+      <div class="container">
+        <div class="nav">
+          <a class="brand" href="#" aria-label="Null’s Brawl Guide Home">
+            <div class="logo" aria-hidden="true"></div>
+            <div>
+              <h1>Null’s Brawl Guide</h1>
+              <p>Unlimited resources • Unlocked brawlers • Pro-style overview</p>
+            </div>
+          </a>
+
+          <div class="nav-actions">
+            <span class="pill">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 22s7-4.35 7-11a7 7 0 1 0-14 0c0 6.65 7 11 7 11Z" stroke="currentColor" stroke-width="1.7"/>
+                <path d="M12 11.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="1.7"/>
+              </svg>
+              Full width • Responsive
+            </span>
+            <a class="cta" href="#comparison">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 7h10M7 12h10M7 17h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              Jump to Comparison
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <article class="hero-card">
+            <div class="inner">
+              <div class="kicker">
+                <span>Private Server Guide</span>
+                <span class="muted">•</span>
+                <span><b>Unlimited</b> gameplay experience</span>
+              </div>
+
+              <h2>Null’s Brawl – The Ultimate Private Server for Unlimited Brawl Stars Fun</h2>
+
+              <p>
+                If you are a true fan of Brawl Stars and want to experience unlimited gems, unlocked brawlers,
+                and exclusive skins without grinding for months, then Null’s Brawl might be the perfect alternative for you.
+                This private server version offers a completely unlocked and enhanced gameplay environment where players can
+                enjoy everything without restrictions.
+              </p>
+
+              <div class="divider"></div>
+
+              <p>
+                In this detailed and SEO-friendly guide, we will explore what Null’s Brawl is, its features, benefits, gameplay
+                experience, and how it compares to the official version of Brawl Stars. Right in the middle of this intro, here’s
+                the official site link:
+                <a class="linkchip" href="https://nulls-brawls.de/" target="_blank" rel="noopener noreferrer">
+                  <!-- first required link + anchor text -->
+                  Null's Brawl
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M14 5h5v5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M10 14 19 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M19 14v5h-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M5 10V5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M5 19h9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </a>
+              </p>
+
+              <div class="hero-meta">
+                <span class="pill">✅ Unlocked brawlers</span>
+                <span class="pill">💎 Unlimited gems & coins</span>
+                <span class="pill">🎭 Exclusive skins</span>
+                <span class="pill">🧪 Custom modes</span>
+              </div>
+            </div>
+          </article>
+
+          <aside class="side">
+            <div class="mini">
+              <h3>What You’ll Learn</h3>
+              <p>
+                A complete breakdown of what Null’s Brawl is, its strongest features, how gameplay feels,
+                safety notes, and a clean comparison against the official Supercell experience.
+              </p>
+              <div class="tagrow">
+                <span class="tag"><strong>SEO</strong> structure</span>
+                <span class="tag alt"><strong>Brand</strong> UI colors</span>
+                <span class="tag"><strong>Full</strong> content</span>
+              </div>
+            </div>
+
+            <div class="mini">
+              <h3>Quick Safety Tip</h3>
+              <p>
+                Private servers are unofficial. Avoid linking your main official accounts and only download from trusted sources.
+              </p>
+              <div class="note">
+                <strong>Important:</strong> Null’s Brawl is not an official product of Supercell and is not available on Google Play
+                Store or Apple App Store.
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main>
+      <div class="container">
+        <div class="grid">
+
+          <!-- What is -->
+          <section class="section" id="what-is">
+            <div class="head">
+              <h3>What is Null’s Brawl?</h3>
+              <span class="badge">Private server • Independent from Supercell</span>
+            </div>
+            <div class="body">
+              <p>
+                Null’s Brawl is a private server version of Brawl Stars that operates independently from the official Supercell servers.
+                It provides players with unlimited in-game resources, unlocked characters, and access to features that may not yet be available
+                in the official version.
+              </p>
+              <p>
+                Unlike the original game, where progression requires time, effort, or in-app purchases, Null’s Brawl allows instant access to
+                premium content. This makes it especially appealing to players who want to experiment with strategies, test new brawlers, or
+                simply enjoy a stress-free gaming experience.
+              </p>
+            </div>
+          </section>
+
+          <!-- Features -->
+          <section class="section" id="features">
+            <div class="head">
+              <h3>Key Features of Null’s Brawl</h3>
+              <span class="badge">Unlimited access • Fast progression</span>
+            </div>
+            <div class="body">
+              <p>
+                One of the main reasons behind the popularity of Null’s Brawl is its powerful feature set. Below is a detailed list of features
+                that make this private server stand out:
+              </p>
+
+              <div class="feature-grid">
+                <div class="feature">
+                  <div class="ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M12 3v18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M8 7h7a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4>Unlimited Gems and Coins</h4>
+                    <p>Enjoy endless resources without spending real money.</p>
+                  </div>
+                </div>
+
+                <div class="feature">
+                  <div class="ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M12 2l4 7-4 13-4-13 4-7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                      <path d="M8 9h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4>All Brawlers Unlocked</h4>
+                    <p>Access every character from the start.</p>
+                  </div>
+                </div>
+
+                <div class="feature">
+                  <div class="ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.6-4.9-2.6-4.9 2.6.9-5.6-4-3.9 5.5-.8L12 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4>Max-Level Characters</h4>
+                    <p>Play with fully upgraded brawlers instantly.</p>
+                  </div>
+                </div>
+
+                <div class="feature">
+                  <div class="ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M20 7l-8-4-8 4v10l8 4 8-4V7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                      <path d="M12 22V12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M12 12L4 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M12 12l8-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4>Exclusive and Custom Skins</h4>
+                    <p>Unlock rare and private skins for free.</p>
+                  </div>
+                </div>
+
+                <div class="feature">
+                  <div class="ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M4 7h16M4 12h10M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4>Custom Game Modes</h4>
+                    <p>Experience new and experimental modes.</p>
+                  </div>
+                </div>
+
+                <div class="feature">
+                  <div class="ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4>Early Access to Updates</h4>
+                    <p>Try upcoming brawlers before official release.</p>
+                  </div>
+                </div>
+
+                <div class="feature">
+                  <div class="ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M7 20V10M12 20V4M17 20v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4>Fast Progression</h4>
+                    <p>No waiting time for upgrades or unlocks.</p>
+                  </div>
+                </div>
+
+                <div class="feature">
+                  <div class="ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M4 12a8 8 0 0 1 16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M6 12a6 6 0 0 1 12 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M8 12a4 4 0 0 1 8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M12 16h0" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4>Private Multiplayer Battles</h4>
+                    <p>Play on dedicated private servers.</p>
+                  </div>
+                </div>
+              </div>
+
+              <p style="margin-top:14px;">
+                These features create a more flexible and exciting environment compared to the standard gameplay structure.
+              </p>
+            </div>
+          </section>
+
+          <!-- Comparison -->
+          <section class="section" id="comparison">
+            <div class="head">
+              <h3>Null’s Brawl vs Official Brawl Stars</h3>
+              <span class="badge">Freedom vs Progression</span>
+            </div>
+            <div class="body">
+              <p>
+                To better understand the difference between the private server and the official game, here is a comparison table:
+              </p>
+
+              <div class="table-wrap" role="region" aria-label="Comparison table: Null’s Brawl vs Official Brawl Stars">
+                <table>
+                  <thead>
+                    <tr>
+                      <th style="width:28%;">Feature</th>
+                      <th style="width:36%;">Null’s Brawl</th>
+                      <th>Official Brawl Stars</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Gems &amp; Coins</td>
+                      <td class="good">Unlimited</td>
+                      <td class="warn">Limited / Purchase Required</td>
+                    </tr>
+                    <tr>
+                      <td>Brawler Unlock System</td>
+                      <td class="good">All Unlocked</td>
+                      <td class="warn">Unlock Through Progress</td>
+                    </tr>
+                    <tr>
+                      <td>Character Levels</td>
+                      <td class="good">Fully Maxed</td>
+                      <td class="warn">Gradual Upgrades</td>
+                    </tr>
+                    <tr>
+                      <td>Skins</td>
+                      <td class="good">Free &amp; Custom</td>
+                      <td class="warn">Mostly Paid or Event-Based</td>
+                    </tr>
+                    <tr>
+                      <td>Server Type</td>
+                      <td class="good">Private Server</td>
+                      <td class="warn">Official Supercell Server</td>
+                    </tr>
+                    <tr>
+                      <td>Account Security</td>
+                      <td class="bad">Unofficial</td>
+                      <td class="good">Fully Secure &amp; Official</td>
+                    </tr>
+                    <tr>
+                      <td>Game Modes</td>
+                      <td class="good">Standard + Custom</td>
+                      <td class="warn">Standard Modes Only</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p style="margin-top:14px;">
+                This comparison clearly shows that Null’s Brawl focuses on freedom and unlimited access, while the official version
+                emphasizes progression and competitive balance.
+              </p>
+            </div>
+          </section>
+
+          <!-- Gameplay -->
+          <section class="section" id="gameplay">
+            <div class="head">
+              <h3>Gameplay Experience in Null’s Brawl</h3>
+              <span class="badge">Skill-focused matches</span>
+            </div>
+            <div class="body">
+              <p>
+                The gameplay mechanics in Null’s Brawl are very similar to Brawl Stars. However, the major difference lies in accessibility.
+                Since all brawlers are unlocked and maxed out, players can instantly jump into competitive matches with powerful characters.
+              </p>
+              <p>
+                There is no need to grind for coins or open countless loot boxes. You can test different team combinations, explore advanced
+                strategies, and fully enjoy the game without limitations.
+              </p>
+
+              <!-- second required link in mid content with relevant anchor text -->
+              <p>
+                If you want to explore updates, brawlers, skins, and server details in one place, you can check the
+                <a href="https://nulls-brawls.de/" target="_blank" rel="noopener noreferrer">official Null’s Brawl download page</a>
+                and keep your gameplay experiments organized.
+              </p>
+
+              <p>
+                Because most players on the server also have maxed characters, matches are often intense and skill-based rather than resource-based.
+              </p>
+            </div>
+          </section>
+
+          <!-- Safety -->
+          <section class="section" id="safety">
+            <div class="head">
+              <h3>Is Null’s Brawl Safe?</h3>
+              <span class="badge">Be cautious • Unofficial software</span>
+            </div>
+            <div class="body">
+              <p>
+                It is important to understand that Null’s Brawl is not an official product of Supercell. It runs on independent servers and is not
+                available on the Google Play Store or Apple App Store.
+              </p>
+              <p>
+                Players should avoid linking their main official accounts to private servers. Since it is unofficial software, there can be potential
+                security risks. Always be cautious and download files only from trusted sources if you choose to try it.
+              </p>
+            </div>
+          </section>
+
+          <!-- Popularity -->
+          <section class="section" id="popular">
+            <div class="head">
+              <h3>Why is Null’s Brawl So Popular?</h3>
+              <span class="badge">Sandbox-style freedom</span>
+            </div>
+            <div class="body">
+              <p>
+                The growing popularity of Null’s Brawl can be attributed to several factors:
+              </p>
+
+              <div class="feature-grid">
+                <div class="feature">
+                  <div class="ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M12 2l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V6l7-4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                      <path d="M9.5 12l1.8 1.8L15.5 9.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4>Instant access to premium features</h4>
+                    <p>Everything feels open from the start—no waiting to try what you want.</p>
+                  </div>
+                </div>
+
+                <div class="feature">
+                  <div class="ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M6 7h12v14H6V7Z" stroke="currentColor" stroke-width="2"/>
+                      <path d="M9 7V5a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4>No need for real-money purchases</h4>
+                    <p>Unlimited resources reduce paywalls and remove grinding pressure.</p>
+                  </div>
+                </div>
+
+                <div class="feature">
+                  <div class="ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M12 13l4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M12 13 8 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4>Early access to upcoming content</h4>
+                    <p>Players enjoy trying brawlers and features before they land officially.</p>
+                  </div>
+                </div>
+
+                <div class="feature">
+                  <div class="ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M8 7h8M8 12h8M8 17h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M6 4h12v16H6V4Z" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4>Freedom to experiment with all characters</h4>
+                    <p>Ideal for testing strategies, comps, and playstyles with no limits.</p>
+                  </div>
+                </div>
+
+                <div class="feature">
+                  <div class="ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M20 12a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z" stroke="currentColor" stroke-width="2"/>
+                      <path d="M8.5 10.5c.7-.8 1.7-1.2 3.5-1.2 1.9 0 3 .5 3.5 1.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M9 14.5c.8 1 1.8 1.5 3 1.5s2.2-.5 3-1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4>Stress-free and fun-focused gameplay</h4>
+                    <p>It feels like a sandbox mode where creativity and practice come first.</p>
+                  </div>
+                </div>
+              </div>
+
+              <p style="margin-top:14px;">
+                For many players, it serves as a sandbox version of Brawl Stars where creativity and experimentation are encouraged.
+              </p>
+            </div>
+          </section>
+
+          <!-- Final thoughts -->
+          <section class="section" id="final">
+            <div class="head">
+              <h3>Final Thoughts</h3>
+              <span class="badge">Choose what fits your goal</span>
+            </div>
+            <div class="body">
+              <p>
+                Null’s Brawl offers a unique and unrestricted version of Brawl Stars for players who want unlimited resources, unlocked brawlers,
+                and custom content. It removes the limitations of progression and allows gamers to fully explore every aspect of the game.
+              </p>
+              <p>
+                However, since it is a private server and not officially supported, players should be aware of potential risks. If your goal is
+                competitive ranking and account security, the official version remains the safest option. But if you want unlimited fun and total
+                freedom, Null’s Brawl provides an exciting alternative experience.
+              </p>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="foot">
+          <div class="left">
+            <h4>Stay Connected</h4>
+            <p>
+              Follow Null’s Brawl social channels for news, community updates, and content. Always prioritize safety and keep your official accounts separate from private servers.
+            </p>
+          </div>
+
+          <div class="social" aria-label="Social links">
+            <a href="https://x.com/NullBrawlls" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 17L17 7M7 7l10 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              X
+            </a>
+
+            <a href="https://www.instagram.com/nulls_brawls/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 7h10v10H7V7Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M15.5 8.5h0" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              Instagram
+            </a>
+
+            <a href="https://www.youtube.com/@NBrawls" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M21 12s0-4-1-5-4-1-8-1-7 0-8 1-1 5-1 5 0 4 1 5 4 1 8 1 7 0 8-1 1-5 1-5Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M11 10l4 2-4 2v-4Z" fill="currentColor"/>
+              </svg>
+              YouTube
+            </a>
+
+            <a href="https://www.pinterest.com/nulls_brawls/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M10.8 18.5c.6-2.2 1.4-5.2 1.4-5.2s-.4-.7-.4-1.7c0-1.6.9-2.8 2-2.8.9 0 1.3.7 1.3 1.6 0 1-.6 2.4-.9 3.7-.3 1.1.6 2 1.7 2 2 0 3.3-2.6 3.3-5.7 0-2.3-1.6-4.1-4.6-4.1-3.4 0-5.5 2.6-5.5 5.5 0 1 .4 1.7.9 2.3.1.1.1.2.1.4l-.3 1.2c-.1.4-.3.5-.7.3-1.3-.6-1.9-2.2-1.9-4 0-3.6 2.9-7.1 8.2-7.1 4.3 0 7.1 3.1 7.1 6.4 0 4.4-2.5 7.6-6.2 7.6-1.2 0-2.3-.6-2.7-1.3l-.8 3.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+              Pinterest
+            </a>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+        <p class="muted" style="margin:0; font-size:12.5px; line-height:1.7;">
+          © <span id="y"></span> Null’s Brawl Guide UI. This page is a design/SEO layout. Null’s Brawl is an unofficial private server and is not affiliated with Supercell.
+        </p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
